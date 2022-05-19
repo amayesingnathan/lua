@@ -4,12 +4,11 @@
 *.o
 *.a
 
-manual/manual.html
+Makefile
 
-testes/time.txt
-testes/time-debug.txt
+manual/
 
-testes/libs/all
+testes/
 
 temp
 lua
