@@ -1,6 +1,7 @@
 project "lua"
     kind "StaticLib"
-    language "C"
+    language "C++"
+    cppdialect "C++17"
     staticruntime "on"
 		
     targetdir 	("%{wks.location}/bin/%{prj.name}/" .. outputDir)
@@ -8,13 +9,20 @@ project "lua"
 
     files 
     { 
+        "lua.hpp",
         "*.h", 
-        "*.c",
+        "*.c"
     }
 	
+    removefiles { "onelua.c" }
+
     filter "system:windows"
         systemversion "latest"
         
+	filter "system:linux"
+        pic "On"
+        systemversion "latest"
+
     filter "configurations:Debug"
 		runtime "Debug"
         symbols "on"
