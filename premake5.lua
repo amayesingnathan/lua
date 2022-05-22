@@ -23,7 +23,10 @@ project "lua"
         pic "On"
         systemversion "latest"
 
-    filter "configurations:Debug"
+	filter "system:linux or bsd or hurd or aix or solaris or haiku"
+		defines     { "LUA_USE_POSIX", "LUA_USE_DLOPEN" }
+        
+    filter "configurations:x64d"
 		runtime "Debug"
         symbols "on"
 
@@ -35,7 +38,7 @@ project "lua"
 		runtime "Debug"
 		symbols "on"
 
-    filter "configurations:Release"
+    filter "configurations:x64"
 		runtime "Release"
         optimize "on"
 
