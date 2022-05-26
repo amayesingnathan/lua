@@ -1,6 +1,6 @@
 .gitattributes
 
-*.vcxproj
+*.vcxproj*
 
 *.so
 *.o

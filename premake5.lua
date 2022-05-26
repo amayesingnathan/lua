@@ -10,8 +10,8 @@ project "lua"
     files 
     { 
         "lua.hpp",
-        "*.h", 
-        "*.c"
+        "src/*.h", 
+        "src/*.c"
     }
 	
     removefiles { "onelua.c" }
