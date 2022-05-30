@@ -7,21 +7,26 @@ project "lua"
     targetdir 	("%{wks.location}/bin/%{prj.name}/" .. outputDir)
     objdir 		("%{wks.location}/obj/%{prj.name}/" .. outputDir)
 
-    files 
-    { 
-        "lua.hpp",
-        "src/*.h", 
-        "src/*.c"
-    }
+    files "lua.hpp"
 	
     removefiles { "onelua.c" }
 
     filter "system:windows"
         systemversion "latest"
+        files 
+        { 
+            "src/*.h", 
+            "src/*.c"
+        }
         
 	filter "system:linux"
         pic "On"
         systemversion "latest"
+        files 
+        { 
+            "*.h", 
+            "*.c"
+        }
 
 	filter "system:linux or bsd or hurd or aix or solaris or haiku"
 		defines     { "LUA_USE_POSIX", "LUA_USE_DLOPEN" }
